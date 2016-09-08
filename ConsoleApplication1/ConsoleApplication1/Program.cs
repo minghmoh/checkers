@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,11 +12,12 @@ namespace ConsoleApplication1
         {
             char mark = 'O';
             if (player1) mark = 'X';
-            int sum =0 ;
+            int sum = 0;
             if (horiz)
             {
                 for (int i = 0; i < 3; i++) sum += board[rowcol][i] == mark ? 1 : 0;
-            }else
+            }
+            else
                 for (int i = 0; i < 3; i++) sum += board[i][rowcol] == mark ? 1 : 0; ;
             return sum;
         }
@@ -28,7 +29,8 @@ namespace ConsoleApplication1
             {
                 if (board[2][0] == mark && board[1][1] == mark && board[0][2] == mark) return true;
 
-            }else
+            }
+            else
             {
                 if (board[0][0] == mark && board[1][1] == mark && board[2][2] == mark) return true;
             } return false;
@@ -37,18 +39,18 @@ namespace ConsoleApplication1
         {
             for (int i = 0; i < 3; i++)
             {
-                if (sum(true, board, i, player1) == 3 || sum(false, board, i, player1)==3) return true;
+                if (sum(true, board, i, player1) == 3 || sum(false, board, i, player1) == 3) return true;
             }
             return diagWon(true, board, player1) || diagWon(false, board, player1);
         }
- 
+
 
         static void Main(string[] args)
         {
 
             bool isPlayer1 = true;
-            char[][] board = new char[][] {new char[]{' ' , ' ', ' '},new char[]{' ', ' ' , ' '},new char[]{' ', ' ' , ' '} };
-           
+            char[][] board = new char[][] { new char[] { ' ', ' ', ' ' }, new char[] { ' ', ' ', ' ' }, new char[] { ' ', ' ', ' ' } };
+
             Console.WriteLine("tick tack toe");
             int moves = 0;
             while (true)
@@ -84,8 +86,8 @@ namespace ConsoleApplication1
                 {
                     Console.WriteLine("Tie! ");
                 }
-                
-               
+                isPlayer1 = !isPlayer1;
+
             }
         }
 
