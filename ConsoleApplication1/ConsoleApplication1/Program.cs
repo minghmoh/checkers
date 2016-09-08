@@ -55,13 +55,7 @@ namespace ConsoleApplication1
             int moves = 0;
             while (true)
             {
-                if (moves == 9)
-                {
-                    Console.WriteLine("Press enter to restart");
-                    Console.ReadKey();
-                    restart(out isPlayer1, board);
-                }
-                for (int i = 0; i < 3; i++)
+                 for (int i = 0; i < 3; i++)
                 {
                     Console.WriteLine(board[i][0] + "|" + board[i][1] + "|" + board[i][2]);
                 }
@@ -81,12 +75,20 @@ namespace ConsoleApplication1
                 if (won(board, isPlayer1))
                 {
                     Console.WriteLine("Player " + player + " wins!");
+                    Console.WriteLine("Press enter to restart");
+                    Console.ReadKey();
+                    restart(out isPlayer1, board);
+
                 }
                 else if (moves == 9)
                 {
                     Console.WriteLine("Tie! ");
+                    Console.WriteLine("Press enter to restart");
+                    Console.ReadKey();
+                    restart(out isPlayer1, board);
+
                 }
-                isPlayer1 = !isPlayer1;
+                else isPlayer1 = !isPlayer1;
 
             }
         }
