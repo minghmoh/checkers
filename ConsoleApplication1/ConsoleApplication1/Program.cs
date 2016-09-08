@@ -41,8 +41,11 @@ namespace ConsoleApplication1
             }
             return diagWon(true, board, player1) || diagWon(false, board, player1);
         }
+ 
+
         static void Main(string[] args)
         {
+
             bool isPlayer1 = true;
             char[][] board = new char[][] {new char[]{' ' , ' ', ' '},new char[]{' ', ' ' , ' '},new char[]{' ', ' ' , ' '} };
            
@@ -50,7 +53,12 @@ namespace ConsoleApplication1
             int moves = 0;
             while (true)
             {
-
+                if (moves == 9)
+                {
+                    Console.WriteLine("Press enter to restart");
+                    Console.ReadKey();
+                    restart(out isPlayer1, board);
+                }
                 for (int i = 0; i < 3; i++)
                 {
                     Console.WriteLine(board[i][0] + "|" + board[i][1] + "|" + board[i][2]);
@@ -79,6 +87,12 @@ namespace ConsoleApplication1
                 
                
             }
+        }
+
+        private static void restart(out bool isPlayer1, char[][] board)
+        {
+            isPlayer1 = true;
+            board = new char[][] { new char[] { ' ', ' ', ' ' }, new char[] { ' ', ' ', ' ' }, new char[] { ' ', ' ', ' ' } };
         }
     }
 }
