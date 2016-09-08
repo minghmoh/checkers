@@ -53,14 +53,21 @@ namespace ConsoleApplication1
                 Console.WriteLine(board[i][0] + "|" + board[i][1] + "|" + board[i][2]);
             }
             string player="2";
+            char mark = 'O'; 
+
             if (isPlayer1)
             {
                 player = "1";
+                mark = 'X';
             }
             Console.WriteLine("Player" + player + " go");
-            
+            string move =  Console.ReadLine();
+            int[] intmove = move.Split(' ').Select(x => Convert.ToInt32(x)).ToArray(); ;
+            board[intmove[0]][intmove[1]] = mark;
+            if (won(board, isPlayer1))
+            {
 
-
+            }
         }
     }
 }
